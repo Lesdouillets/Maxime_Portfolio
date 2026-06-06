@@ -17,8 +17,8 @@ export function ProjectCard({ title, description, tags, thumbnailSrc, href }: Pr
   return (
     <Link href={href} className="group block">
       <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-colors duration-200">
-        <div className="bg-gradient-to-b from-elevated to-base p-8 flex justify-center">
-          <DeviceMockup imageSrc={thumbnailSrc} />
+        <div className="bg-gradient-to-b from-elevated to-base py-8 flex justify-center">
+          <DeviceMockup imageSrc={thumbnailSrc} compact />
         </div>
         <div className="p-6">
           <div className="flex gap-2 mb-3 flex-wrap">

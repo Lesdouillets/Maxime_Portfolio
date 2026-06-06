@@ -3,13 +3,16 @@ interface DeviceMockupProps {
   videoSrc?: string
   label?: string
   className?: string
+  compact?: boolean
 }
 
-export function DeviceMockup({ imageSrc, videoSrc, label, className = '' }: DeviceMockupProps) {
+export function DeviceMockup({ imageSrc, videoSrc, label, className = '', compact = false }: DeviceMockupProps) {
+  const size = compact ? 'w-[130px] h-[272px] rounded-[1.5rem]' : 'w-[200px] h-[420px] rounded-[2.5rem]'
+  const island = compact ? 'w-14 h-4' : 'w-24 h-6'
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
-      <div className="relative w-[200px] h-[420px] rounded-[2.5rem] border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_0_50px_rgba(99,102,241,0.2)] overflow-hidden flex-shrink-0">
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-10" />
+      <div className={`relative ${size} border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_0_50px_rgba(99,102,241,0.2)] overflow-hidden flex-shrink-0`}>
+        <div className={`absolute top-3 left-1/2 -translate-x-1/2 ${island} bg-black rounded-full z-10`} />
         <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden">
           {videoSrc ? (
             <video src={videoSrc} autoPlay muted loop playsInline className="w-full h-full object-cover" />
